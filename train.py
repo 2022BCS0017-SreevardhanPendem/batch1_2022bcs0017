@@ -8,7 +8,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import mean_squared_error, r2_score
 
-df = pd.read_csv("/data/winequality.csv")
+df = pd.read_csv("/data/winequality_red.csv")
 
 X = df.drop("quality", axis=1)
 y = df["quality"]
