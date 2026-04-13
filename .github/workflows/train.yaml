@@ -1,36 +1,36 @@
-name: Automated Model Training
+# name: Automated Model Training
 
-on:
-  push:
-    branches: [ "main"]
-jobs:
-  train:
-    runs-on: ubuntu-latest
-    steps:
-      - name: action checkout 
-        uses: actions/checkout@v4
+# on:
+#   push:
+#     branches: [ "main"]
+# jobs:
+#   train:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: action checkout 
+#         uses: actions/checkout@v4
 
-      - name: Set up python env
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.10"
+#       - name: Set up python env
+#         uses: actions/setup-python@v4
+#         with:
+#           python-version: "3.10"
 
-      - name: Install requirement.txt dependencies
-        run: |
-          pip install -r requirements.txt
+#       - name: Install requirement.txt dependencies
+#         run: |
+#           pip install -r requirements.txt
 
-      - name: train the model
-        run: |
-          python train.py
+#       - name: train the model
+#         run: |
+#           python train.py
 
-      - name: Upload trained model
-        uses: actions/upload-artifact@v4
-        with:
-          name: trained-model
-          path: outputs/model.joblib
+#       - name: Upload trained model
+#         uses: actions/upload-artifact@v4
+#         with:
+#           name: trained-model
+#           path: outputs/model.joblib
 
-      - name: Upload evaluation results
-        uses: actions/upload-artifact@v4
-        with:
-          name: evaluation-results
-          path: outputs/results.json
+#       - name: Upload evaluation results
+#         uses: actions/upload-artifact@v4
+#         with:
+#           name: evaluation-results
+#           path: outputs/results.json
